@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8"/>
+      <title>Company System</title>
+   </head>
+   <body>
+      <a th:href="@{/}">Home</a>
+       
+      <h2 style="color: navy;text-align: center;">Using company-DB</h2>
+       
+      <ul>
+         <li th:each="company : company" th:utext="${campany}"></li>
+      </ul>
+       
+   </body>
+    
+</html>
