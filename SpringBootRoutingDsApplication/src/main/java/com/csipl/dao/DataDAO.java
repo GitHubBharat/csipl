@@ -18,14 +18,14 @@ public class DataDAO extends JdbcDaoSupport {
         this.setDataSource(dataSource);
     }
  
-    public List<String> queryPublishers() {
+    public List<String> queryCompany() {
         String sql = "Select name from company";
  
         List<String> list = this.getJdbcTemplate().queryForList(sql, String.class);
         return list;
     }
  
-    public List<String> queryAdvertisers() {
+    public List<String> queryEmployees() {
         String sql = "Select name from employees";
  
         List<String> list = this.getJdbcTemplate().queryForList(sql, String.class);

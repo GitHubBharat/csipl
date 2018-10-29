@@ -23,22 +23,22 @@ public class MainController {
 		return "home";
 	}
 
-	@RequestMapping(value = { "/advertiser/list" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/employees/list" }, method = RequestMethod.GET)
 	public String advertiser(Model model) throws SQLException {
 
-		List<String> list = dataDAO.queryAdvertisers();
-		model.addAttribute("advertisers", list);
+		List<String> list = dataDAO.queryEmployees();
+		model.addAttribute("employees", list);
 
-		return "advertiser";
+		return "employees";
 	}
 
 	@RequestMapping(value = { "/publisher/list" }, method = RequestMethod.GET)
-	public String publisher(Model model) throws SQLException {
+	public String company(Model model) throws SQLException {
 
-		List<String> list = dataDAO.queryPublishers();
-		model.addAttribute("publishers", list);
+		List<String> list = dataDAO.queryCompany();
+		model.addAttribute("company", list);
 
-		return "publisher";
+		return "company";
 	}
 
 }
