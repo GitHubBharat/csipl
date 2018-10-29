@@ -18,13 +18,13 @@ public class MainController {
 	private DataDAO dataDAO;
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-	public String home(Model model) throws SQLException {
+	public String home(Model model) throws Exception {
 
-		return "home";
+		return "index";
 	}
 
 	@RequestMapping(value = { "/employees/list" }, method = RequestMethod.GET)
-	public String advertiser(Model model) throws SQLException {
+	public String advertiser(Model model) throws Exception {
 
 		List<String> list = dataDAO.queryEmployees();
 		model.addAttribute("employees", list);
@@ -32,11 +32,11 @@ public class MainController {
 		return "employees";
 	}
 
-	@RequestMapping(value = { "/publisher/list" }, method = RequestMethod.GET)
-	public String company(Model model) throws SQLException {
+	@RequestMapping(value = { "/company/list" }, method = RequestMethod.POST)
+	public String company(Model model) throws Exception {
 
 		List<String> list = dataDAO.queryCompany();
-		model.addAttribute("company", list);
+		model.addAttribute("campany", list);
 
 		return "company";
 	}

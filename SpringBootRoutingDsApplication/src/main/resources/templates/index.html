@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8"/>
+      <title>Home</title>
+   </head>
+   <body>
+    
+      <h2 style="color: navy;text-align: center;">Multi DataSource with RoutingDataSource</h2>
+       
+      <h3 style="color: red;text-align: center;"> Using Company-DB</h3>
+      <ul>
+         <li style="color: navy;text-align: center;"><a th:href="@{/company/list}">Show Company List</a></li>
+      </ul>
+       
+      <h3 style="color: navy;text-align: center;"> Using employees-DB</h3>
+      <ul>
+         <li style="color: blue;text-align: center;"> <a th:href="@{/employees/list}">Show employees Lists</a>   </li>
+      </ul>
+       <li style="color: blue;text-align: center;"> <a th:href="@{/empoloyees/}">Show employees Lists</a>
+   </body>
+    
+</html>

@@ -32,11 +32,11 @@ protected Object determineCurrentLookupKey() {
 }
 
 public void initDataSources(DataSource dataSource1, DataSource dataSource2) {
-   Map<Object, Object> dsMap = new HashMap<Object, Object>();
-   dsMap.put("COMPANY_DS", dataSource1);
-   dsMap.put("EMPLOYEES_DS", dataSource2);
+   Map<Object, Object> dsmap = new HashMap<Object, Object>();
+   dsmap.put("COMPANY_DS", dataSource1);
+   dsmap.put("EMPLOYEES_DS", dataSource2);
 
-   this.setTargetDataSources(dsMap);
+   this.setTargetDataSources(dsmap);
 }
 
 }
