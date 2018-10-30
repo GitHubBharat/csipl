@@ -5,11 +5,13 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
@@ -19,17 +21,12 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.csipl.rounting.MyRoutingDataSource;
 
-@SpringBootApplication
-
-// Disable Auto Config DataSource & DataSourceTransactionManager
+@SpringBootApplication(scanBasePackages= {"com.csipl.*"})
 @EnableAutoConfiguration(exclude = { //
 		DataSourceAutoConfiguration.class, //
 		DataSourceTransactionManagerAutoConfiguration.class })
-
-// Load to Environment
-// (@see resources/datasource-cfg.properties).
 @PropertySources({ @PropertySource("classpath:database-cfgs.properties") })
-public class SpringBootRoutingDsApplication {
+public class SpringBootRoutingDsApplication extends SpringBootServletInitializer{
 
 	// Stores all the properties loaded by the @PropertySource
 	@Autowired
@@ -91,4 +88,6 @@ public class SpringBootRoutingDsApplication {
 
 		return txManager;
 	}
+
+
 }

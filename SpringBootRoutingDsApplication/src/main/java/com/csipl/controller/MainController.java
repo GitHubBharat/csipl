@@ -1,6 +1,5 @@
 package com.csipl.controller;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,21 +19,22 @@ public class MainController {
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String home(Model model) throws Exception {
 
-		return "index";
+System.out.println("MainController.home()");
+		return "home";
 	}
 
-	@RequestMapping(value = { "/employees/list" }, method = RequestMethod.GET)
-	public String advertiser(Model model) throws Exception {
-
+	@RequestMapping(value = "employees/list", method = RequestMethod.GET)
+	public String employee(Model model) throws Exception {
+System.out.println("MainController.employee()");
 		List<String> list = dataDAO.queryEmployees();
 		model.addAttribute("employees", list);
 
 		return "employees";
 	}
 
-	@RequestMapping(value = { "/company/list" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "company/list" }, method = RequestMethod.GET)
 	public String company(Model model) throws Exception {
-
+System.out.println("MainController.company()");
 		List<String> list = dataDAO.queryCompany();
 		model.addAttribute("campany", list);
 

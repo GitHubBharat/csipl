@@ -31,5 +31,12 @@ public class DataDAO extends JdbcDaoSupport {
         List<String> list = this.getJdbcTemplate().queryForList(sql, String.class);
         return list;
     }
-     
+    
+    public List<String> queryFacebook() {
+        String sql = "Select name from facebook";
+ 
+        List<String> list = this.getJdbcTemplate().queryForList(sql, String.class);
+        return list;
+    }
+    
 }
