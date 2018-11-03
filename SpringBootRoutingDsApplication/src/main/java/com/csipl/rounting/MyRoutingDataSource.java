@@ -16,6 +16,7 @@ public class MyRoutingDataSource extends AbstractRoutingDataSource {
 @Override
 protected Object determineCurrentLookupKey() {
 
+	if(RequestContextHolder.getRequestAttributes()!=null) {
    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
          .getRequest();
 
@@ -29,6 +30,8 @@ protected Object determineCurrentLookupKey() {
    }
 
    return keyDS;
+	}
+	return "COMPANY_DS";
 }
 
 public void initDataSources(DataSource dataSource1, DataSource dataSource2) {
