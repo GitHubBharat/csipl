@@ -1,4 +1,4 @@
-package com.csipl.test;
+package com.bharat.test;
 
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
